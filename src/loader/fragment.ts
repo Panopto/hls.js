@@ -5,6 +5,7 @@ import LevelKey from './level-key';
 import { PlaylistLevelType } from '../types/loader';
 
 export enum ElementaryStreamTypes {
+  AUDIOVIDEO = 'audiovideo',
   AUDIO = 'audio',
   VIDEO = 'video',
 }
@@ -16,6 +17,7 @@ export default class Fragment {
 
   // Holds the types of data this fragment supports
   private _elementaryStreams: Record<ElementaryStreamTypes, boolean> = {
+    [ElementaryStreamTypes.AUDIOVIDEO]: false,
     [ElementaryStreamTypes.AUDIO]: false,
     [ElementaryStreamTypes.VIDEO]: false
   };

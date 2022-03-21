@@ -992,6 +992,10 @@ class StreamController extends BaseStreamController {
         frag.addElementaryStream(ElementaryStreamTypes.VIDEO);
       }
 
+      if (data.hasAudio === true && data.hasVideo === true && data.type === 'audiovideo') {
+        frag.addElementaryStream(ElementaryStreamTypes.AUDIOVIDEO);
+      }
+
       logger.log(`Parsed ${data.type},PTS:[${data.startPTS.toFixed(3)},${data.endPTS.toFixed(3)}],DTS:[${data.startDTS.toFixed(3)}/${data.endDTS.toFixed(3)}],nb:${data.nb},dropped:${data.dropped || 0}`);
 
       // Detect gaps in a fragment  and try to fix it by finding a keyframe in the previous fragment (see _findFragments)
